@@ -4,15 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
-import dns from "dns";
 
-// FORCE DNS TO GOOGLE (Fixes ENOTFOUND on restricted networks)
-try {
-    dns.setServers(["8.8.8.8", "8.8.4.4"]);
-    console.log("🌐 DNS servers set to Google (8.8.8.8)");
-} catch (err) {
-    console.error("Failed to set DNS servers:", err);
-}
 
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
