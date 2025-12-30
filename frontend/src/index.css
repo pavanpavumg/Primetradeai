@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --gradient: linear-gradient(135deg, #6a11cb, #2575fc);
+    --text: #0f172a;
+    --bg: #f6f7fb;
+    /* Fallback/Base */
+    --card: #ffffff;
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+    --light: #6b7280;
+    --neon: #00eaff;
+    --neon-pink: #ff4dff;
+}
+
+.dark {
+    --gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    --text: #f1f5f9;
+    --bg: #0f172a;
+    --card: #1e293b;
+    --light: #9ca3af;
+}
+
+body {
+    background: var(--gradient);
+    min-height: 100vh;
+    /* Ensure gradient covers full height */
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.dark .glass {
+    background: rgba(17, 25, 40, 0.65);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: 0.3s;
+    color: #374151;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background: #eef2ff;
+    color: var(--primary);
+    transform: translateX(4px);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: .6rem 1.2rem;
+    border-radius: .8rem;
+    font-size: .9rem;
+    font-weight: 500;
+    transition: .3s;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+    padding: .4rem .8rem;
+    border-radius: .6rem;
+    font-size: .8rem;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+.input {
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: 0.2s;
+}
+
+.input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-badge.todo {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.status-badge.inprogress {
+    background: #fde68a;
+    color: #b45309;
+}
+
+.status-badge.done {
+    background: #bbf7d0;
+    color: #059669;
+}
+
+.neon-glow {
+    transition: .25s ease;
+}
+
+.neon-glow:focus,
+.neon-glow:hover {
+    box-shadow: 0 0 14px var(--neon), 0 0 22px var(--neon-pink);
+    border-color: var(--neon);
+    transform: translateY(-1px);
+}

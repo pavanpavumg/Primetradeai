@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
+    "@sendinblue/client": "^3.3.1",
+    "crypto": "^1.0.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "mongodb": "^7.0.0",
+    "nodemailer": "^7.0.12"
+  }
+}
