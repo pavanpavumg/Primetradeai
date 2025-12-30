@@ -46,10 +46,14 @@ app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`🚀 Server running on port ${PORT}`);
-    console.log(`Health check: http://localhost:${PORT}/api/tasks`); // Helpful for user to click
-});
+
+// Only listen if not in Vercel environment (local dev)
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, "0.0.0.0", () => {
+        console.log(`🚀 Server running on port ${PORT}`);
+        console.log(`Health check: http://localhost:${PORT}/api/tasks`);
+    });
+}
 
 // GLOBAL ERROR HANDLERS
 process.on("uncaughtException", (err) => {
@@ -59,3 +63,5 @@ process.on("uncaughtException", (err) => {
 process.on("unhandledRejection", (err) => {
     console.error("❌ Unhandled Promise Rejection:", err);
 });
+
+export default app;
